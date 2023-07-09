@@ -1,4 +1,4 @@
-# api_yamdb
+# API_YAMDB
 API предназначено для добавления и просмотра произведений, их оценок и комментариев
 # Технологии
 Python 3.7
@@ -16,11 +16,11 @@ DB_PORT=5432 # порт для подключения к БД
 # Инструкция по запуску приложения в контейнере
 Запускаем сборку контейнера в фоновом режиме(чтобы логи не мешали последующим действиям):
 
-```
+```bash
 docker-compose up -d
 ```
 По очереди выполняем миграции, создание суперюзера и сбор статики
-```
+```bash
 docker-compose exec web python manage.py migrate
 docker-compose exec web python manage.py createsuperuser
 docker-compose exec web python manage.py collectstatic --no-input
@@ -31,36 +31,34 @@ docker-compose exec web python manage.py collectstatic --no-input
 # Примеры запросов API
 
 Регистрация и получение токена
-```
+```bash
 http://127.0.0.1/api/v1/auth/signup/
 http://127.0.0.1/api/v1/auth/token/
 ```
 
 Получение произведений
-```
+```bash
 http://127.0.0.1/api/v1/titles/
 ```
 
 Оставить отзыв о произведении
-```
+```bash
 http://127.0.0.1/api/v1/titles/{title_id}/reviews/
 ```
 
 Оставить комментарий  к отзыву
-```
+```bash
 http://127.0.0.1/api/v1/titles/{title_id}/reviews/{review_id}/comments/
 ```
 
 Работа с пользователями
-```
+```bash
 http://127.0.0.1/api/v1/users/
 ```
 
 # Документация и перечень всех эндпоинтов
-```
+```bash
 http://127.0.0.1/redoc/
 ```
 
-# Автор проекта:
-
-# Владимир Семочкин
+Автор: [Владимир Семочкин](https://github.com/Semavova)
